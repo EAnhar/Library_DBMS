@@ -11,6 +11,7 @@ CREATE TABLE Privilege (
         PRIMARY KEY(Privileges_ID,privilegesName)
 
 );
+/------------------UPDATE THE INSERT------------------------/
 INSERT into Privilege(Privileges_ID,privilegesName,Loan_Period,MaxNumItemToLoan,MaxNumRenewal) 
 values 
  ( 1,'Faculty','120 day ',5,6  ) 
@@ -82,8 +83,8 @@ CREATE TABLE Author (
     Call_Number numeric(10),
     Year_Of_Birth numeric(4)
 );
-
-INSERT INTO AUTHOR (AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values 
+/------------------UPDATE THE INSERT------------------------/
+INSERT INTO AUTHOR(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values 
     (23,'Bill Bryson'       , 9663552346 ,1933), 
     (34, 'Herman Hesse'     , 9665436456, 1943), 
     (12,'Fyodor Dostoevsky' , 966348464,2001), 
@@ -91,7 +92,10 @@ INSERT INTO AUTHOR (AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values
     (13,'Franz Kafka'       , 9662342523,1932), 
     (16,'J.k Rowling'       , 9663451333,1980), 
     (18,'Carl Jung'         , 9664565675,1977), 
+	(05,'Ibn Qayyim al-Jawziyya' , 9664087632,1292),
+    (07,'Ibn Battuta Al-Tanji' , 9664087632,1304),
     (10,'Dale Carnegie'     , 9665463457,1997);
+
 ------------------------------Book TABLE-----------------------------------/
 
 CREATE TABLE Book (
@@ -108,6 +112,7 @@ CREATE TABLE Book (
     CONSTRAINT BOOK_FK1 
         FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE
 );
+/------------------UPDATE THE INSERT------------------------/
 INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher , B_Language) values 
     (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ','ENGLISH' ),
     (0552997048,'A Short History of Nearly Everything'  ,'4th'  ,'Short story'  ,'Paper_Book',10 ,'Haeper Colline','ARABIC' ),
@@ -120,9 +125,9 @@ INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , P
     (0091906350,'How to Win Friends and Influence People','5th' ,'Guide'        ,'Paper_Book',18 ,'Random house','ENGLISH' ),
     (0722532938, 'The Alchemist'                        ,'3rd'  ,'Science'      ,'Paper_Book', 10,'Piatkus','ENGLISH' ),
     (0261103571,'The Fellowship of the Ring '           ,'7th'  ,'Philosophy'   ,'eBook'     , 17,'Piatkus','ARABIC' ),
-    (0007461216, 'Mere Christianity'                    ,''     ,'Religion'     ,'Paper_Book', 13,'Abrams books','ARABIC' ),
+    (2745122061, 'Aljawab alkafi '                    ,''     ,'Religion'     ,'Paper_Book', 05,'Scientific Books House','ARABIC' ),
     (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH' ),
-    (8638845660,'Harry Potter and the Deathly Hallows','5th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH' );
+    (8638845660,'Ibn Battuta Journey','','Literature and poetry'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC' );
 
 -------------------------------Video_Sound_Record TABLE-----------------------------------/
 
@@ -149,7 +154,14 @@ CREATE TABLE Thesis (
     CONSTRAINT Thesis_FK 
         FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE
 );
-Insert into Thesis (T_ID,T_Title,T_DESCRIPTION,AuthorID,T_Location)
+insert into Thesis ( T_ID , T_Title , T_DESCRIPTION, AuthorID , T_Location)values
+((101,'pandemic COVID-19','The effects of the COVID-19 pandemic',23 ,'HEALTH' ),
+ (102,'DNA evidence in criminal justice','Analysis and research on DNA evidence in criminal justice.',18 ,'Criminal Law' ),
+ (103,'Racism in schools and colleges','The extent of racism in schools and colleges and the factors affecting',34 ,'social' ),
+ (104,'Economic development and happiness', 'The effect of economic development on happiness',13 ,'Economic' ),
+ (105,'The consequences of obesity','The long-term health and psychological impact of obesity',12 ,'HEALTH' ),
+ (106,'The influence of social media.','The consequences of social media and how it can be used to serve the human being',16 ,'social' ));
+ 
 
 -------------------------------------Journal TABLE-----------------------------------------------/
 
@@ -160,12 +172,12 @@ CREATE TABLE Journal (
         Check(Journal_type in ('Newspaper','Article')),
     Release_Date date
 );
-INSERT INTO Journal (J_ID , J_Title , Journal_type , Release_Date ) values
+INSERT INTO Journal (J_ID , J_Title , Journal_type , Release_Date ) values(
 ( 948,'A Closer Look at Appearance and Social Media' ,'Article'     ,'2022-05-28'  ),
 ( 496,'Me, My Selfie, and I'                         ,'Article'     ,'2020-03-05'   ),
 ( 478 ,'The Novel Coronavirus (COVID-2019) Outbreak' ,'Newspaper'   ,'2019-06-09' ),
 ( 695,'The Construction of “Critical Thinking”'      ,'Newspaper'   ,'2021-04-28'  ),
-( 375,'Treatment of Alcohol Use Disorder'            ,'Article'     , '2016-12-25' );
+( 375,'Treatment of Alcohol Use Disorder'            ,'Article'     , '2016-12-25' ));
 
 ------------------------------------Fine TABLE-----------------------------------------------/
 CREATE TABLE Fine (
@@ -212,6 +224,44 @@ CREATE TABLE RESOURCES (
     CONSTRAINT RESOURCES_FK
         FOREIGN KEY(Privileges_LEVEL) REFERENCES Privilege(Privileges_ID)ON DELETE CASCADE
 );
+INSERT INTO RESOURCES(resourceID,ResourceType,Availabilty,Privileges_LEVEL) values
+((0872204642, 'Book'  , 'Available',1),
+(0552997048, 'Book'  , 'Available',2),
+(0805012469, 'Book'  , 'Unavailable',1),
+(0140449132, 'Book'  , 'Available',4),
+(1686705026, 'Book'  , 'Available',3),
+(1505297052, 'Book'  , 'Available',4),
+(1408845660, 'Book'  , 'Unavailable',5),
+(0613922670, 'Book'  , 'Available',4),
+(0091906350, 'Book'  , 'Available',4),
+(0722532938, 'Book'  , 'Available',3),
+(0261103571, 'Book'  , 'Available',4),
+(2745122061, 'Book'  , 'Available',1),
+(1208045660, 'Book'  , 'Unavailable',4),
+(8638845660, 'Book'  , 'Available',5),
+(948, 'Journal-Article'  , 'Available',3),
+(496, 'Journal-Article'  , 'Available',4),
+(478, 'Journal-Newspaper'  , 'Available',5),
+(948, 'Journal-Newspaper'  , 'Available',4),
+(375, 'Journal-Article'  , 'Unavailable',4),
+(110, 'Sound-Record'  , 'Available',3),
+(115, 'Sound-Record'  , 'Unavailable',4),
+(111, 'Video-Record'  , 'Available',4),
+(112, 'Sound-Record'  , 'Available',2),
+(113, 'Sound-Record'  , 'Unavailable',4),
+(114, 'Sound-Record'  , 'Available',3),
+(101, 'Thesis'  , 'Unavailable',4),
+(102, 'Thesis'  , 'Available',3),
+(103, 'Thesis'  , 'Available',5),
+(104, 'Thesis'  , 'Available',1),
+(105, 'Thesis'  , 'Unavailable',4),
+(106, 'Thesis'  , 'Available',4),
+(302, 'Room'  , 'Unavailable',1),
+(305, 'Room'  , 'Available',3),
+(204, 'Room'  , 'Available',1),
+(211, 'Room'  , 'Unavailable',4),
+(309, 'Room'  , 'Available',2),
+(214, 'Room'  , 'Unavailable',4));
 
 -------------------------------------Loan TABLE-----------------------------------------------/
 CREATE TABLE Loan (
@@ -227,6 +277,14 @@ CREATE TABLE Loan (
     CONSTRAINT LOAN_FK2 
         FOREIGN KEY(resourceID)REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
+
+insert into Loan  ( Loan_ID , MemberID , resourceID, Date_Taken_Out , Date_Returned)values
+((110,002,0140449132,'2022-10-20', '2022-11-04')
+, (111, 011 , 2745122061 ,'2022-08-20', '2022-11-20')
+, (113,002, 101 , '2022-10-20', '2022-11-04')
+, (115,009 , 305,'13:10:11', '13:11:11')
+, (116,011,302,'08:05:00', '10:05:00')
+, (119,003,106,'2022-10-15', '2022-10-30'));
 
 -------------------------------------Collection TABLE-----------------------------------------------/
 CREATE TABLE Collection (
