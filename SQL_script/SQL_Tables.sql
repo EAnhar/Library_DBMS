@@ -13,9 +13,9 @@ CREATE TABLE Privilege (
 );
 INSERT into Privilege(Privileges_ID,privilegesName,Loan_Period,MaxNumItemToLoan,MaxNumRenewal) 
 values 
-  ( 1 ,'staff','30 days ',2, 3 )
-, ( 2,'Faculty','120 day ',5,6  ) 
-, ( 3,'Postgraduate_Student',' 90 days ',3  , 4 ) 
+ ( 1,'Faculty','120 day ',5,6  ) 
+, ( 2,'Postgraduate_Student',' 90 days ',3  , 4 ) 
+, ( 3 ,'staff','30 days ',2, 3 )
 , ( 4,'Undergraduate_Student','14 days ',  2,  3) 
 , ( 5,'Community_Patrons','7 days ', 1 , 1 ) ;
 
