@@ -92,7 +92,7 @@ INSERT INTO AUTHOR(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values
     (13,'Franz Kafka'       , 9662342523,1932), 
     (16,'J.k Rowling'       , 9663451333,1980), 
     (18,'Carl Jung'         , 9664565675,1977), 
-	(05,'Ibn Qayyim al-Jawziyya' , 9664087632,1292),
+    (05,'Ibn Qayyim al-Jawziyya' , 9664087632,1292),
     (07,'Ibn Battuta Al-Tanji' , 9664087632,1304),
     (10,'Dale Carnegie'     , 9665463457,1997);
 
@@ -190,7 +190,12 @@ CREATE TABLE Fine (
     CONSTRAINT Fine_FK 
         FOREIGN KEY(Loan_ID)REFERENCES Loan(Loan_ID)ON DELETE CASCADE
 );
-
+ INSERT INTO Fine(Loan_ID ,Fine_DESCRIPTION,Amount,Fine_Status) values
+ (( 125, 'delay in rewinding "Harry Potter" book',25,'Paid' ),
+( 110,'Delay in returning the book "Crime and Punishment"',25 ,'Unpaid'),
+( 116, 'took Lab 302 more than two hours',35,'Paid' ),
+( 121,'Destruction of the book "Crime and Punishment"',50 ,'Unpaid'),
+( 123,'Delay in returning the book "The Glass Bead Game"',25 ,'Unpaid'));
 ------------------------------------Room TABLE-----------------------------------------------/
 
 CREATE TABLE Room (
@@ -224,10 +229,11 @@ CREATE TABLE RESOURCES (
     CONSTRAINT RESOURCES_FK
         FOREIGN KEY(Privileges_LEVEL) REFERENCES Privilege(Privileges_ID)ON DELETE CASCADE
 );
+/------------------UPDATE THE INSERT------------------------/
 INSERT INTO RESOURCES(resourceID,ResourceType,Availabilty,Privileges_LEVEL) values
 ((0872204642, 'Book'  , 'Available',1),
 (0552997048, 'Book'  , 'Available',2),
-(0805012469, 'Book'  , 'Unavailable',1),
+(0805012469, 'Book'  , 'Unavailable',3),
 (0140449132, 'Book'  , 'Available',4),
 (1686705026, 'Book'  , 'Available',3),
 (1505297052, 'Book'  , 'Available',4),
@@ -277,14 +283,17 @@ CREATE TABLE Loan (
     CONSTRAINT LOAN_FK2 
         FOREIGN KEY(resourceID)REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
-
+/------------------UPDATE THE INSERT------------------------/
 insert into Loan  ( Loan_ID , MemberID , resourceID, Date_Taken_Out , Date_Returned)values
-((110,002,0140449132,'2022-10-20', '2022-11-04')
+((110,002,0140449132,'2022-10-05', '2022-10-28')
 , (111, 011 , 2745122061 ,'2022-08-20', '2022-11-20')
 , (113,002, 101 , '2022-10-20', '2022-11-04')
 , (115,009 , 305,'13:10:11', '13:11:11')
 , (116,011,302,'08:05:00', '10:05:00')
-, (119,003,106,'2022-10-15', '2022-10-30'));
+, (119,003,106,'2022-10-15', '2022-10-30'),
+(121,003,106,'2022-10-15', '2022-10-30'),
+(123,004,0805012469,'2022-09-20', '2022-10-30'),
+(125,008,1408845660,'2022-09-10', '2022-09-25'));
 
 -------------------------------------Collection TABLE-----------------------------------------------/
 CREATE TABLE Collection (
