@@ -141,7 +141,14 @@ CREATE TABLE Video_Sound_Record (
     Publisher VARCHAR(25)
 
 );
-INSERT INTO Video_Sound_Record (Record_ID,Record_Title,Record_Type,R_DESCRIPTION,R_Location,Publisher)
+INSERT INTO Video_Sound_Record(Record_ID ,Record_Title,Record_Type,R_DESCRIPTION,R_Location,Publisher) values(
+(110, 'Vampire Horror!','Sound' ,'Four classic tales of the undead, read by Bill Wallis, John Telfer and Cornelius Garrett', 'Short stories' ,'Unabridged Audiobook' ),
+(115, 'Lecture: Physics and Life','Video' ,'answer to "What type of knowledge is gained from physics?"', 'Sciences' ,'WaveSound' ),
+(111, 'The Giver – Lois Lowry','Sound' ,'The Giver is a 1993 American young adult dystopian novel written by Lois Lowry', 'novel' ,'Ascent Audio' ),
+(112, 'IT ENDS WITH US','Sound' ,'An honest, evocative, and tender novel, It Ends with Us is “a glorious and touching read', 'novel' ,'Tantor Media' ),
+(113, 'Little Women','Sound' ,'An Audible Original Drama By: Louisa May Alcott', 'Coming-of-age' ,'HighBridge' ),
+(114, 'The 4-Hour Workweek by Tim Ferriss','Sound' ,'for all those tired of postponing their life until retirement', 'Short stories' ,'W. F. Howes Ltd'));
+
 -----------------------------------Thesis TABLE-----------------------------------------------/
 
 CREATE TABLE Thesis (
