@@ -31,13 +31,20 @@ CREATE TABLE Members (
     Email VARCHAR(40) 
         Check(Email LIKE '%@qu.edu.sa'),
     Address VARCHAR(40),
-    Call_Number numeric(10) NOT NULL,
 
     CONSTRAINT Member_FK 
         FOREIGN KEY(Member_Type) REFERENCES Privilege(privilegesName)
 
 );
------------------ INSERT ------------------------
+-----------------------
+
+CREATE TABLE MEMBER_CALL_NUMBER(
+	Call_Number numeric(10) PRIMARY KEY,
+	Member_ID INT(10) REFERENCES Members(Member_ID)
+);
+
+
+----------------- INSERT befor the normlization------------------------
  INSERT INTO Members (Member_ID, PIN , First_Name ,Last_Name, Member_Type,Email,Address,Call_Number)  VALUES 
 (001,'12345', 'Shatha','Al-bahouth', 'Undergraduate_Student','shatha@qu.edu.sa','Buraydah-Albsateen',9663341556)
 , (002,'13344', 'Anhar','Al-dosary', 'Undergraduate_Student','Anhar@qu.edu.sa','Buraydah-Alrafeah',9663224557)
@@ -83,10 +90,16 @@ INSERT INTO Cards (Member_ID, Register_DATE , Register_expired ,Member_Status ) 
 CREATE TABLE Author (
     AuthorID INT  PRIMARY KEY, 
     Author_Name  VARCHAR(30) NOT NULL,
-    Call_Number numeric(10),
     Year_Of_Birth numeric(4)
 );
------------------- INSERT------------------------
+----------------------
+CREATE TABLE Author_Call_Number (
+    Call_Number numeric(10) PRIMARY KEY ,
+    AuthorID INT REFERENCES Author(AuthorID)
+);
+
+------------------ INSERT befor the normlization ------------------------
+
 INSERT INTO AUTHOR(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values 
     (23,'Bill Bryson'       , 9663552346 ,1933), 
     (34, 'Herman Hesse'     , 9665436456, 1943), 
@@ -343,5 +356,4 @@ CREATE TABLE Collection (
 INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject,ID_of_Items) values
 ('Harry Potter','Book','Fantasy',7 ),
 ('Harry Potter','Book','Fantasy', 13);
-
 
