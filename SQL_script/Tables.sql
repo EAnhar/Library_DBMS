@@ -188,7 +188,7 @@ CREATE TABLE Journal (
       FOREIGN KEY(Rsrc_ID) REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
-INSERT INTO Journal (J_ID , J_Title , Journal_type , Release_Date ) values(
+INSERT INTO Journal (J_ID , J_Title , Journal_type , Release_Date,Rsrc_ID ) values(
 ( 948,'A Closer Look at Appearance and Social Media' ,'Article'     ,'2022-05-28' ,15 ),
 ( 496,'Me, My Selfie, and I'                         ,'Article'     ,'2020-03-05' ,16  ),
 ( 478 ,'The Novel Coronavirus (COVID-2019) Outbreak' ,'Newspaper'   ,'2019-06-09' ,17 ),
@@ -226,7 +226,7 @@ CREATE TABLE Room (
         FOREIGN KEY(Rsrc_ID) REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
-INSERT INTO Room(Room_number,Room_Type,R_Location,MaxDuration) values
+INSERT INTO Room(Room_number,Room_Type,R_Location,MaxDuration,Rsrc_ID) values
 ( 302, 'Lab'         , 'Computer_Collage','2 hour',32),
 ( 305, 'Reading_Room', 'Scientific_Collage','1 hour',33),
 ( 204, 'Lab'         , 'Scientific_Collage','2 hour',34),
