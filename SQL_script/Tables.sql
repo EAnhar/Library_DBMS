@@ -182,15 +182,18 @@ CREATE TABLE Journal (
     J_Title VARCHAR(90) NOT NULL ,
     Journal_type VARCHAR(40) NOT NULL
         Check(Journal_type in ('Newspaper','Article')),
-    Release_Date date
+    Release_Date date,
+    Rsrc_ID int ,
+        CONSTRAINT Journal_FK
+      FOREIGN KEY(Rsrc_ID) REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
 INSERT INTO Journal (J_ID , J_Title , Journal_type , Release_Date ) values(
-( 948,'A Closer Look at Appearance and Social Media' ,'Article'     ,'2022-05-28'  ),
-( 496,'Me, My Selfie, and I'                         ,'Article'     ,'2020-03-05'   ),
-( 478 ,'The Novel Coronavirus (COVID-2019) Outbreak' ,'Newspaper'   ,'2019-06-09' ),
-( 695,'The Construction of “Critical Thinking”'      ,'Newspaper'   ,'2021-04-28'  ),
-( 375,'Treatment of Alcohol Use Disorder'            ,'Article'     , '2016-12-25' ));
+( 948,'A Closer Look at Appearance and Social Media' ,'Article'     ,'2022-05-28' ,15 ),
+( 496,'Me, My Selfie, and I'                         ,'Article'     ,'2020-03-05' ,16  ),
+( 478 ,'The Novel Coronavirus (COVID-2019) Outbreak' ,'Newspaper'   ,'2019-06-09' ,17 ),
+( 695,'The Construction of “Critical Thinking”'      ,'Newspaper'   ,'2021-04-28' ,18 ),
+( 375,'Treatment of Alcohol Use Disorder'            ,'Article'     , '2016-12-25',19 ));
 
 ------------------------------------Fine TABLE-----------------------------------------------/
 CREATE TABLE Fine (
