@@ -161,18 +161,22 @@ CREATE TABLE Thesis (
     T_DESCRIPTION VARCHAR(90),
     AuthorID  INT NOT NULL ,
     T_Location VARCHAR(30),
-
+	Rsrc_ID int ,
+      
     CONSTRAINT Thesis_FK 
-        FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE
+        FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE,
+	CONSTRAINT Thesis_FK2
+      FOREIGN KEY(Rsrc_ID) REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
-insert into Thesis ( T_ID , T_Title , T_DESCRIPTION, AuthorID , T_Location)values
-((101,'pandemic COVID-19','The effects of the COVID-19 pandemic',23 ,'HEALTH' ),
- (102,'DNA evidence in criminal justice','Analysis and research on DNA evidence in criminal justice.',18 ,'Criminal Law' ),
- (103,'Racism in schools and colleges','The extent of racism in schools and colleges and the factors affecting',34 ,'social' ),
- (104,'Economic development and happiness', 'The effect of economic development on happiness',13 ,'Economic' ),
- (105,'The consequences of obesity','The long-term health and psychological impact of obesity',12 ,'HEALTH' ),
- (106,'The influence of social media.','The consequences of social media and how it can be used to serve the human being',16 ,'social' ));
+
+insert into Thesis ( T_ID , T_Title , T_DESCRIPTION, AuthorID , T_Location,Rsrc_ID)values
+((101,'pandemic COVID-19','The effects of the COVID-19 pandemic',23 ,'HEALTH' ,26),
+ (102,'DNA evidence in criminal justice','Analysis and research on DNA evidence in criminal justice.',18 ,'Criminal Law' ,27),
+ (103,'Racism in schools and colleges','The extent of racism in schools and colleges and the factors affecting',34 ,'social',28 ),
+ (104,'Economic development and happiness', 'The effect of economic development on happiness',13 ,'Economic' ,29),
+ (105,'The consequences of obesity','The long-term health and psychological impact of obesity',12 ,'HEALTH' ,30),
+ (106,'The influence of social media.','The consequences of social media and how it can be used to serve the human being',16 ,'social' ,31));
  
 
 -------------------------------------Journal TABLE-----------------------------------------------/
