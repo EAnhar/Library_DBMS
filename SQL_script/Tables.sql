@@ -111,26 +111,30 @@ CREATE TABLE Book (
     AuthorID  INT NOT NULL ,
     Publisher  VARCHAR(25),
     B_Language VARCHAR(15),
+    Rsrc_ID varchar(10) Not Null,
 
     CONSTRAINT BOOK_FK1 
-        FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE
+        FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE ,
+	CONSTRAINT BOOK_FK2 
+        FOREIGN KEY(Rsrc_ID)REFERENCES Resources (resourceID )ON DELETE CASCADE 
+	
 );
 -----------------  INSERT------------------------
-INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher , B_Language) values 
-    (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ','ENGLISH' ),
-    (0552997048,'A Short History of Nearly Everything'  ,'4th'  ,'Short story'  ,'Paper_Book',10 ,'Haeper Colline','ARABIC' ),
-    (0805012469, 'The Glass Bead Game'                  ,'7th'  ,'Thriller'     ,'Paper_Book', 10,'Simon & schuster','ENGLISH' ),
-    (0140449132, 'Crime and Punishment'                 ,'3rd'  ,'History'      ,'eBook'     ,18 ,'william Tyndale','ENGLISH' ),
-    (1686705026,'The Picture of Dorian Gray'            ,''     ,'Diary'        ,'Paper_Book',23 ,'Abrams books','ENGLISH' ),
-    (1505297052, 'The Metamorphosis'                    ,'1st'  ,'Mystery'      ,'eBook'     , 34,'Piatkus','ARABIC' ),
-    (1408845660,'Harry Potter and the Prisoner of Azkaban','9th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH' ),
-    (0613922670, 'Man and His Symbols'                  , ''    ,'Anthology'    ,'Paper_Book', 13,'Piatkus','ARABIC' ),
-    (0091906350,'How to Win Friends and Influence People','5th' ,'Guide'        ,'Paper_Book',18 ,'Random house','ENGLISH' ),
-    (0722532938, 'The Alchemist'                        ,'3rd'  ,'Science'      ,'Paper_Book', 10,'Piatkus','ENGLISH' ),
-    (0261103571,'The Fellowship of the Ring '           ,'7th'  ,'Philosophy'   ,'eBook'     , 17,'Piatkus','ARABIC' ),
-    (2745122061, 'Aljawab alkafi '                    ,''     ,'Religion'     ,'Paper_Book', 05,'Scientific Books House','ARABIC' ),
-    (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH' ),
-    (8638845660,'Ibn Battuta Journey','','Literature and poetry'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC' );
+INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher , B_Language,Rsrc_ID ) values 
+    (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ','ENGLISH',1 ),
+    (0552997048,'A Short History of Nearly Everything'  ,'4th'  ,'Short story'  ,'Paper_Book',10 ,'Haeper Colline','ARABIC',2 ),
+    (0805012469, 'The Glass Bead Game'                  ,'7th'  ,'Thriller'     ,'Paper_Book', 10,'Simon & schuster','ENGLISH',3 ),
+    (0140449132, 'Crime and Punishment'                 ,'3rd'  ,'History'      ,'eBook'     ,18 ,'william Tyndale','ENGLISH',4 ),
+    (1686705026,'The Picture of Dorian Gray'            ,''     ,'Diary'        ,'Paper_Book',23 ,'Abrams books','ENGLISH',5 ),
+    (1505297052, 'The Metamorphosis'                    ,'1st'  ,'Mystery'      ,'eBook'     , 34,'Piatkus','ARABIC',6 ),
+    (1408845660,'Harry Potter and the Prisoner of Azkaban','9th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH',7 ),
+    (0613922670, 'Man and His Symbols'                  , ''    ,'Anthology'    ,'Paper_Book', 13,'Piatkus','ARABIC' ,8),
+    (0091906350,'How to Win Friends and Influence People','5th' ,'Guide'        ,'Paper_Book',18 ,'Random house','ENGLISH',9 ),
+    (0722532938, 'The Alchemist'                        ,'3rd'  ,'Science'      ,'Paper_Book', 10,'Piatkus','ENGLISH',10 ),
+    (0261103571,'The Fellowship of the Ring '           ,'7th'  ,'Philosophy'   ,'eBook'     , 17,'Piatkus','ARABIC',11 ),
+    (2745122061, 'Aljawab alkafi '                    ,''     ,'Religion'     ,'Paper_Book', 05,'Scientific Books House','ARABIC',12 ),
+    (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH',13 ),
+    (8638845660,'Ibn Battuta Journey','','Literature and poetry'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC',14 );
 
 -------------------------------Video_Sound_Record TABLE------------------------------------------------------
 
