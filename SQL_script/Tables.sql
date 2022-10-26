@@ -217,16 +217,19 @@ CREATE TABLE Room (
     Room_Type VARCHAR(50) NOT NULL
         Check(Room_Type in('Lab','Reading_Room','Working_Room')) , 
     R_Location VARCHAR(50) , 
-    MaxDuration varchar(10)
+    MaxDuration varchar(10),
+    Rsrc_ID int ,
+        CONSTRAINT Room_FK
+        FOREIGN KEY(Rsrc_ID) REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
 INSERT INTO Room(Room_number,Room_Type,R_Location,MaxDuration) values
-( 302, 'Lab'         , 'Computer_Collage','2 hour'),
-( 305, 'Reading_Room', 'Scientific_Collage','1 hour'),
-( 204, 'Lab'         , 'Scientific_Collage','2 hour'),
-( 211, 'Reading_Room', 'Computer_Collage','1 hour'),
-( 309, 'Working_Room', 'Computer_Collage','5 hour'),
-( 214, 'Reading_Room', 'Scientific_Collage','1 hour');
+( 302, 'Lab'         , 'Computer_Collage','2 hour',32),
+( 305, 'Reading_Room', 'Scientific_Collage','1 hour',33),
+( 204, 'Lab'         , 'Scientific_Collage','2 hour',34),
+( 211, 'Reading_Room', 'Computer_Collage','1 hour',35),
+( 309, 'Working_Room', 'Computer_Collage','5 hour',36),
+( 214, 'Reading_Room', 'Scientific_Collage','1 hour',37);
 
 
 ---------------------------RESOURCES TABLE -----------------------------------------------------------------------
