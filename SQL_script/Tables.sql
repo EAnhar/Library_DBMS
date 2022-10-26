@@ -1,4 +1,4 @@
-------------------------------------Privilege TABLE-----------------------------------------------/
+------------------------------------Privilege TABLE-----------------------------------------------
 
 CREATE TABLE Privilege (
     Privileges_ID INT(11) , 
@@ -11,7 +11,7 @@ CREATE TABLE Privilege (
         PRIMARY KEY(Privileges_ID,privilegesName)
 
 );
-/------------------UPDATE THE INSERT------------------------/
+----------------- INSERT ------------------------
 INSERT into Privilege(Privileges_ID,privilegesName,Loan_Period,MaxNumItemToLoan,MaxNumRenewal) 
 values 
  ( 1,'Faculty','120 day ',5,6  ) 
@@ -20,7 +20,7 @@ values
 , ( 4,'Undergraduate_Student','14 days ',  2,  3) 
 , ( 5,'Community_Patrons','7 days ', 1 , 1 ) ;
 
-------------------------------Members TABLE-----------------------------------/
+------------------------------Members TABLE----------------------------------------------------------
 CREATE TABLE Members (
     Member_ID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     PIN VARCHAR(15) NOT NULL ,
@@ -37,6 +37,7 @@ CREATE TABLE Members (
         FOREIGN KEY(Member_Type) REFERENCES Privilege(privilegesName)
 
 );
+----------------- INSERT ------------------------
  INSERT INTO Members (Member_ID, PIN , First_Name ,Last_Name, Member_Type,Email,Address,Call_Number)  VALUES 
 (001,'12345', 'Shatha','Al-bahouth', 'Undergraduate_Student','shatha@qu.edu.sa','Buraydah-Albsateen',9663341556)
 , (002,'13344', 'Anhar','Al-dosary', 'Undergraduate_Student','Anhar@qu.edu.sa','Buraydah-Alrafeah',9663224557)
@@ -49,7 +50,8 @@ CREATE TABLE Members (
 , (009,'35908', 'noof','Al-harbi', 'Postgraduate_Student','noof@qu.edu.sa','Unaizah',9660525181)
  ,(010,'02488', 'raqinah','Al-rabia', 'Faculty','raqinah@qu.edu.sa',NULL,9663525119) 
  ,(011, 'A1234', 'Abeer', 'Alhujaylan', 'Faculty', 'a.alhujaylan@qu.edu.sa', NULL, '05355768765');
-------------------------------------Card TABLE-----------------------------------------------/
+ 
+------------------------------------Card TABLE----------------------------------------------------------
 
 CREATE TABLE Cards (
     Member_ID INT NOT NULL,
@@ -62,6 +64,7 @@ CREATE TABLE Cards (
     CONSTRAINT Card_FK 
         FOREIGN KEY(Member_ID)REFERENCES Members(Member_ID)ON DELETE CASCADE
 );
+----------------- INSERT ------------------------
 INSERT INTO Cards (Member_ID, Register_DATE , Register_expired ,Member_Status )  VALUES 
  (001,'2021-01-09', '2022-01-09','Inactive')
 ,(002,'2022-03-12', '2023-03-12','Active')
@@ -76,14 +79,14 @@ INSERT INTO Cards (Member_ID, Register_DATE , Register_expired ,Member_Status ) 
 ,(011,'2022-01-21', '2023-01-21','Active');
 
 
--------------------------------------Author TABLE-----------------------------------------------/
+-------------------------------------Author TABLE---------------------------------------------------
 CREATE TABLE Author (
     AuthorID INT  PRIMARY KEY, 
     Author_Name  VARCHAR(30) NOT NULL,
     Call_Number numeric(10),
     Year_Of_Birth numeric(4)
 );
-/------------------UPDATE THE INSERT------------------------/
+------------------ INSERT------------------------
 INSERT INTO AUTHOR(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values 
     (23,'Bill Bryson'       , 9663552346 ,1933), 
     (34, 'Herman Hesse'     , 9665436456, 1943), 
@@ -96,7 +99,7 @@ INSERT INTO AUTHOR(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values
     (07,'Ibn Battuta Al-Tanji' , 9664087632,1304),
     (10,'Dale Carnegie'     , 9665463457,1997);
 
-------------------------------Book TABLE-----------------------------------/
+------------------------------Book TABLE-----------------------------------------------------------
 
 CREATE TABLE Book (
     ISBN  numeric(13) PRIMARY KEY, 
@@ -112,7 +115,7 @@ CREATE TABLE Book (
     CONSTRAINT BOOK_FK1 
         FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE
 );
-/------------------UPDATE THE INSERT------------------------/
+-----------------  INSERT------------------------
 INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher , B_Language) values 
     (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ','ENGLISH' ),
     (0552997048,'A Short History of Nearly Everything'  ,'4th'  ,'Short story'  ,'Paper_Book',10 ,'Haeper Colline','ARABIC' ),
@@ -129,7 +132,7 @@ INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , P
     (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH' ),
     (8638845660,'Ibn Battuta Journey','','Literature and poetry'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC' );
 
--------------------------------Video_Sound_Record TABLE-----------------------------------/
+-------------------------------Video_Sound_Record TABLE------------------------------------------------------
 
 CREATE TABLE Video_Sound_Record (
     Record_ID int PRIMARY KEY, 
@@ -141,6 +144,7 @@ CREATE TABLE Video_Sound_Record (
     Publisher VARCHAR(25)
 
 );
+----------------- INSERT ------------------------
 INSERT INTO Video_Sound_Record(Record_ID ,Record_Title,Record_Type,R_DESCRIPTION,R_Location,Publisher) values(
 (110, 'Vampire Horror!','Sound' ,'Four classic tales of the undead, read by Bill Wallis, John Telfer and Cornelius Garrett', 'Short stories' ,'Unabridged Audiobook' ),
 (115, 'Lecture: Physics and Life','Video' ,'answer to "What type of knowledge is gained from physics?"', 'Sciences' ,'WaveSound' ),
@@ -161,6 +165,7 @@ CREATE TABLE Thesis (
     CONSTRAINT Thesis_FK 
         FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE
 );
+----------------- INSERT ------------------------
 insert into Thesis ( T_ID , T_Title , T_DESCRIPTION, AuthorID , T_Location)values
 ((101,'pandemic COVID-19','The effects of the COVID-19 pandemic',23 ,'HEALTH' ),
  (102,'DNA evidence in criminal justice','Analysis and research on DNA evidence in criminal justice.',18 ,'Criminal Law' ),
@@ -179,6 +184,7 @@ CREATE TABLE Journal (
         Check(Journal_type in ('Newspaper','Article')),
     Release_Date date
 );
+----------------- INSERT ------------------------
 INSERT INTO Journal (J_ID , J_Title , Journal_type , Release_Date ) values(
 ( 948,'A Closer Look at Appearance and Social Media' ,'Article'     ,'2022-05-28'  ),
 ( 496,'Me, My Selfie, and I'                         ,'Article'     ,'2020-03-05'   ),
@@ -197,6 +203,7 @@ CREATE TABLE Fine (
     CONSTRAINT Fine_FK 
         FOREIGN KEY(Loan_ID)REFERENCES Loan(Loan_ID)ON DELETE CASCADE
 );
+----------------- INSERT ------------------------
  INSERT INTO Fine(Loan_ID ,Fine_DESCRIPTION,Amount,Fine_Status) values
  (( 125, 'delay in rewinding "Harry Potter" book',25,'Paid' ),
 ( 110,'Delay in returning the book "Crime and Punishment"',25 ,'Unpaid'),
@@ -212,6 +219,7 @@ CREATE TABLE Room (
     R_Location VARCHAR(50) , 
     MaxDuration varchar(10)
 );
+----------------- INSERT ------------------------
 INSERT INTO Room(Room_number,Room_Type,R_Location,MaxDuration) values
 ( 302, 'Lab'         , 'Computer_Collage','2 hour'),
 ( 305, 'Reading_Room', 'Scientific_Collage','1 hour'),
@@ -221,7 +229,7 @@ INSERT INTO Room(Room_number,Room_Type,R_Location,MaxDuration) values
 ( 214, 'Reading_Room', 'Scientific_Collage','1 hour');
 
 
---------------------------------------------------------
+---------------------------RESOURCES TABLE -----------------------------------------------------------------------
 CREATE TABLE RESOURCES (
     resourceID VARCHAR(20),
     ResourceType  VARCHAR(30) NOT NULL
@@ -236,7 +244,7 @@ CREATE TABLE RESOURCES (
     CONSTRAINT RESOURCES_FK
         FOREIGN KEY(Privileges_LEVEL) REFERENCES Privilege(Privileges_ID)ON DELETE CASCADE
 );
-/------------------UPDATE THE INSERT------------------------/
+------------------ INSERT------------------------/
 INSERT INTO RESOURCES(resourceID,ResourceType,Availabilty,Privileges_LEVEL) values
 ((0872204642, 'Book'  , 'Available',1),
 (0552997048, 'Book'  , 'Available',2),
@@ -290,7 +298,7 @@ CREATE TABLE Loan (
     CONSTRAINT LOAN_FK2 
         FOREIGN KEY(resourceID)REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
-/------------------UPDATE THE INSERT------------------------/
+------------------  INSERT------------------------/
 insert into Loan  ( Loan_ID , MemberID , resourceID, Date_Taken_Out , Date_Returned)values
 ((110,002,0140449132,'2022-10-05', '2022-10-28')
 , (111, 011 , 2745122061 ,'2022-08-20', '2022-11-20')
@@ -312,7 +320,7 @@ CREATE TABLE Collection (
     CONSTRAINT Coll_PK 
         PRIMARY KEY(Collection_Name,ID_of_Items)
 );
-
+----------------- INSERT ------------------------
 INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject,ID_of_Items) values
 ('Harry Potter','Book','Fantasy',1408845660 ),
 ('Harry Potter','Book','Fantasy', 1208045660),
