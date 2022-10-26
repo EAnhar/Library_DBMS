@@ -123,15 +123,21 @@ CREATE TABLE Book (
         Check(Book_Type in ('eBook','Paper_Book')),
     AuthorID  INT NOT NULL ,
     Publisher  VARCHAR(25),
-    B_Language VARCHAR(15),
+   
     Rsrc_ID varchar(10) Not Null,
 
     CONSTRAINT BOOK_FK1 
         FOREIGN KEY(AuthorID)REFERENCES Author(AuthorID)ON DELETE CASCADE ,
-	CONSTRAINT BOOK_FK2 
+    CONSTRAINT BOOK_FK2 
         FOREIGN KEY(Rsrc_ID)REFERENCES Resources (resourceID )ON DELETE CASCADE 
 	
 );
+-------------------
+-- CREATE TABLE Book_language(
+-- 	B_Language VARCHAR(15) ,
+-- 	ISBN  numeric(13) REFERENCES Book(ISBN) 
+
+-- );
 -----------------  INSERT------------------------
 INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher , B_Language,Rsrc_ID ) values 
     (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ','ENGLISH',1 ),
