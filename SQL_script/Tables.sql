@@ -334,7 +334,10 @@ CREATE TABLE Collection (
     ID_of_Items VARCHAR(20) NOT NULL,
 
     CONSTRAINT Coll_PK 
-        PRIMARY KEY(Collection_Name,ID_of_Items)
+        PRIMARY KEY(Collection_Name,ID_of_Items),
+	
+    CONSTRAINT Coll_FK 
+        FOREIGN KEY(ID_of_Items)REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
 INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject,ID_of_Items) values
