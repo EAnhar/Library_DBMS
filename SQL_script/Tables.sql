@@ -134,7 +134,7 @@ INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , P
     (0261103571,'The Fellowship of the Ring '           ,'7th'  ,'Philosophy'   ,'eBook'     , 17,'Piatkus','ARABIC',11 ),
     (2745122061, 'Aljawab alkafi '                    ,''     ,'Religion'     ,'Paper_Book', 05,'Scientific Books House','ARABIC',12 ),
     (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH',13 ),
-    (8638845660,'Ibn Battuta Journey','','Literature and poetry'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC',14 );
+    (8638845660,'Ibn Battuta Journey','','Literature'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC',14 );
 
 -------------------------------Video_Sound_Record TABLE------------------------------------------------------
 
@@ -316,15 +316,15 @@ CREATE TABLE Loan (
 );
 ------------------  INSERT------------------------/
 insert into Loan  ( Loan_ID , MemberID , resourceID, Date_Taken_Out , Date_Returned)values
-((110,002,0140449132,'2022-10-05', '2022-10-28')
-, (111, 011 , 2745122061 ,'2022-08-20', '2022-11-20')
-, (113,002, 101 , '2022-10-20', '2022-11-04')
-, (115,009 , 305,'2022-10-15	13:10:11', '2022-10-15	13:11:11')
-,  (116,011,302,'2022-10-07	08:05:00', '2022-10-07	10:05:00')
-, (119,003,106,'2022-10-15', '2022-10-30'),
-(121,003,106,'2022-10-15', '2022-10-30'),
-(123,004,0805012469,'2022-09-20', '2022-10-30'),
-(125,008,1408845660,'2022-09-10', '2022-09-25'));
+((110,002,4,'2022-10-05', '2022-10-28')
+, (111, 011 , 12 ,'2022-08-20', '2022-11-20')
+, (113,002, 26 , '2022-10-20', '2022-11-04')
+, (115,009 , 33,'2022-10-15	13:10:11', '2022-10-15	13:11:11')
+,  (116,011,32,'2022-10-07	08:05:00', '2022-10-07	10:05:00')
+, (119,003,31,'2022-10-15', '2022-10-30'),
+(121,003,31,'2022-10-15', '2022-10-30'),
+(123,004,3,'2022-09-20', '2022-10-30'),
+(125,008,7,'2022-09-10', '2022-09-25'));
 
 -------------------------------------Collection TABLE-----------------------------------------------/
 CREATE TABLE Collection (
@@ -338,8 +338,7 @@ CREATE TABLE Collection (
 );
 ----------------- INSERT ------------------------
 INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject,ID_of_Items) values
-('Harry Potter','Book','Fantasy',1408845660 ),
-('Harry Potter','Book','Fantasy', 1208045660),
-('Harry Potter','Book','Fantasy',8638845660 );
+('Harry Potter','Book','Fantasy',7 ),
+('Harry Potter','Book','Fantasy', 13);
 
 
