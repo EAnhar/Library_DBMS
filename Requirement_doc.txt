@@ -1,0 +1,150 @@
+Advanced Database project documentation
+
+
+1.	Project overview 
+The main campus –Almulaida- of Qassim University (QU) has shown a keen interest to improve its library system by 2023. Therefore, as an exercise, the library system will be developed as a student project. We have been selected to develop a database for Almulaida campus library. we asked to provide a design for a database system that will store information on the book, journal, loan, member, member type, fines, and so on.
+
+2.	Project Requirements 
+  2.1	 A complete requirements document.
+    2.1.1	Data requirements 
+    2.1.2	Transaction requirements
+          •	Data entry
+          •	Data Update/Deletion 
+          •	Data Queries 
+
+
+2.1.1 Data Requirement
+  Privilege: 
+  Each member has privileges level depending on its type. Each resource has privilege level number. 
+  The table includes ID number which is uniquely, member type as a privilege name.
+  And its determine a loan period for a resource and number
+  of item that member can borrow it as well as Maximum number of renewal. 
+
+  Members: 
+  The members are people whom regularly visit 
+  the library to get benefit from its resources as student
+  or work on it as staff. The data stored in members includes
+  member ID witch is unique, PIN for online database,
+  name, call number,Email, Address,
+  member type (Faculty, Postgraduate or Undergraduate student, Staff and community patrons).
+
+  Card: 
+  The card contains member ID, registered and expired date of membership
+  for each member and the and status whether if it’s active or not.
+
+  Author: 
+  Stores information’s about the Authors of resources in the library.
+  Each author has Id, name, call number and year of his birth. 
+
+  Book: 
+  Books in library Identified by ISBN number and classified on wither it’s 
+  a printed or electronic copy. Each book has title with its edition number,
+  author ID, publisher name, subject and book language.
+
+  Journal : 
+  The journals come Monthly to the library and stores information about 
+  articles and newspaper in journal table. Which include a unique number,
+  title, journal type (whether an article or newspaper), and release date. 
+
+  Thesis: 
+  There is many Thesis written by university students and doctors in the library.
+  The data stored in thesis include unique number, author ID, and its location.
+
+  Video and Sound Record’s: 
+  The library has video and sound records Identified by unique number,
+  and classified by wither it’s a video or sound record.
+  Each has title, publisher, location, and description.
+
+  Room: 
+  In the library there are several types of rooms such as reading, 
+  working and lab room. Each room has unique number, location and the maximum duration to hold. 
+
+  Collection : 
+  There are group of resources that are related to each other in some identifiable way.
+  The table will store name of collection, subject, type and IDs of the items. 
+
+  Resources: 
+  All resources ID with their type are entered to be a primary key,
+  in addition to a field specifying its status (if its available or not) and its privilege level.
+
+  Loan: 
+  The library give opportunity to loan its resources via Circulation Service center.
+  Which states that a person must be a member of the library to be able to borrow.
+  Each loan process has unique Id, member ID, resource ID, date and time taken out and return. 
+
+  Fine: 
+  Fine imposed on members when they don’t follow
+  the rules or cause a damage to a library resource.
+  The data stored on fine include loan ID, description,
+  amount of fine and its status (to indicate if it's paid or not). 
+
+2.1.2	Transaction requirements
+  A)	Data entry
+
+    -Enter the details of privileges.
+    -Enter the details of new member.
+    -Enter the details of cards.
+    -Enter the details of new authors.
+    -Enter the details of new Books.
+    -Enter the details of new journal.
+    -Enter the details of new thesis.
+    -Enter the details of new video record’s.
+    -Enter the details of new sound record’s.
+    -Enter the details of rooms.
+    -Enter the details of all resources.
+    -Enter the details of new collections.
+    -Enter the details of new loans.
+    -Enter the details of new fines.
+
+  B)	Data Update/Deletion 
+
+    - Update/Deletion the details of privileges.
+    - Update/Deletion the details of new member.
+    - Update/Deletion the details of cards.
+    - Update/Deletion the details of new authors.
+    - Update/Deletion the details of new Books.
+    - Update/Deletion the details of new journal.
+    - Update/Deletion the details of new thesis.
+    - Update/Deletion the details of new video record’s.
+    - Update/Deletion the details of new sound record’s.
+    - Update/Deletion the details of rooms.
+    - Update/Deletion the details of all resources.
+    - Update/Deletion the details of new collections.
+    - Update/Deletion the details of new loans.
+    - Update/Deletion the details of new fines.
+
+
+
+  C)	Data Queries 
+
+    1.	List all book in the library with their edition.
+    2.	List all available books with their ISBN.
+    3.	List all Arabic Books with full information.
+    4.	List all unavailable Historical books with their ISBN.
+    5.	List all books by the author ‘J.K’.
+    6.	List all books have ‘law’ word in its title.
+    7.	List all electronic books in English language.
+    8.	List all books published from ‘Abrams books’. 
+    9.	Display all authors whom born in 1999.
+    10.	Display the full name and email for members with ID ‘011’.
+    11.	List all active members with their IDs.
+    12.	List all members who registered this month.
+    13.	List all undergraduate students with their call numbers.
+    14.	List all available rooms in this hour.
+    15.	Display number of working rooms in computer collage.
+    16.	List all articles released in 2022.
+    17.	List all newspapers with its title.
+    18.	List all unavailable resource with privilege level 1.
+    19.	Display collection name with its items. 
+    20.	Update member status after renewal its membership.
+    21.	Display the total fins amount on member with ID ‘001’.
+    22.	List all member’s ID with unpaid fines.
+    23.	List all unreturned resources with borrower information.
+    24.	Display the most popular resource for this month.
+    25.	List member’s full information with more than 5 fines.
+    26.	List all thesis have ‘health’ in its title with its description.
+    27.	List all video records with its description.
+    28.	Display the number of Mystery books in the library.
+    29.	Display the author who has the most books in the library. 
+    30.	List all resources that allowed just for short loan.
+
