@@ -10,11 +10,11 @@
 
 ### Team Members
 
-  * Anhar yousef Aldosary | 411201886 
+>  * Anhar yousef Aldosary | 411201886 
 
-  * Sara Alghofaily | 
+>  * Sara Alghofaily | 
 
-  * Shatha Albahouth | 411201985
+>  * Shatha Albahouth | 411201985
 
 <br> <br>
 ## Library Database 
@@ -22,17 +22,21 @@
 ### Database Design (EER Model)
 >  [EER diagram](https://github.com/EAnhar/Library_DBMS/files/9880965/EER.diagram.pdf)
 
+<br>
+
 ### Relational Mapping (Logical Design)
 > 
 
 <br>
 
 ### Database implementation (Physical Design)
- You can browse the SQL files from here<br> 
+> You can browse the SQL files from here<br> 
 > * [CREATE TABLES](https://github.com/EAnhar/Library_DBMS/blob/main/SQL_script/CREATE_Tables.sql)
 > * [INSERT INTO TABLES](https://github.com/EAnhar/Library_DBMS/blob/main/SQL_script/INSERT_INTO_TABLES) 
 > * [TABLES VIEWS ](https://github.com/EAnhar/Library_DBMS/blob/main/SQL_script/Views.sql) 
 > * [DATABASE ROLES](https://github.com/EAnhar/Library_DBMS/blob/main/SQL_script/Data_Access.sql)
+
+<br>
 
 ### Online Database 
 We have create a librery website for esay access to the library resources and member information. 
