@@ -14,6 +14,6 @@ Create view vBookStatus As
 
 CREATE VIEW LibraryADs AS
   SELECT Member_ID,First_Name,Last_Name,Member_Type,Email 
-  FROM database_projrct.members;
+  FROM members;
 
 
