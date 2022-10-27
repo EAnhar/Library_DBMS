@@ -28,7 +28,7 @@ INSERT INTO vbookstatus4( resourceID,ResourceType,Availabilty,Privileges_LEVEL )
 
 
 
-
+\--Open phpmyadmin and goto 'More' Tab and select 'Variables' submenu. Scroll down to find sql mode. Edit sql mode and remove 'STRICT_TRANS_TABLES' Save it
 \---------------------LibraryADs VIEW--------------------------\
 CREATE VIEW LibraryADs AS
 SELECT Member_ID,First_Name,Last_Name,Member_Type,Email 
