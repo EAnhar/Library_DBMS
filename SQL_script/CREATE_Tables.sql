@@ -14,7 +14,7 @@ CREATE TABLE Privilege (
 ------------------------------Members TABLE----------------------------------------------------------
 CREATE TABLE Members (
     Member_ID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    PIN VARCHAR(15) NOT NULL ,
+    PIN VARCHAR(15)  ,
     First_Name VARCHAR(20) NOT NULL ,
     Last_Name VARCHAR(20),
     Member_Type VARCHAR(30) NOT NULL 
@@ -89,12 +89,11 @@ CREATE TABLE Book (
         FOREIGN KEY(Rsrc_ID)REFERENCES Resources (resourceID )ON DELETE CASCADE 
 	
 );
--------------------
--- CREATE TABLE Book_language(
--- 	B_Language VARCHAR(15) ,
--- 	ISBN  numeric(13) REFERENCES Book(ISBN) 
-
--- );
+------------------------------------TABLE Book_language ------------------------------------------
+CREATE TABLE Book_language(
+	B_Language VARCHAR(15) ,
+ 	ISBN  numeric(13) REFERENCES Book(ISBN) 
+ );
 
 -------------------------------Video_Sound_Record TABLE------------------------------------------------------
  CREATE TABLE Video_Sound_Record (
