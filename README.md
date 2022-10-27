@@ -35,7 +35,8 @@
 > * [DATABASE ROLES](https://github.com/EAnhar/Library_DBMS/blob/main/SQL_script/Data_Access.sql)
 
 ### Online Database 
-> We have create a librery website for esay access to library resources and member information. Using HTML CSS and connected it to mySQL database via PHP, and uploaded it on Localhost server (Wamp). 
+We have create a librery website for esay access to the library resources and member information. 
+Using HTML CSS for UI and connected it to mySQL database via PHP, and uploaded it on Localhost server (Wamp). 
 >> Below is a video of what the website look like
 >
 > https://user-images.githubusercontent.com/91504512/198337787-75ab0720-c289-4fe1-adda-0c267d479036.mp4
