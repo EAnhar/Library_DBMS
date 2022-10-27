@@ -30,19 +30,35 @@ CREATE TABLE Members (
         Check(Member_Type in('Faculty','Postgraduate_Student','Undergraduate_Student','Staff','Community_Patrons')),
     Email VARCHAR(40) 
         Check(Email LIKE '%@qu.edu.sa'),
-    Address VARCHAR(40),
 
     CONSTRAINT Member_FK 
         FOREIGN KEY(Member_Type) REFERENCES Privilege(privilegesName)
 
 );
------------------------
+-----------------------MEMBER_CALL_NUMBER TABLE ----------------------------------------------------------
 
 CREATE TABLE MEMBER_CALL_NUMBER(
 	Call_Number numeric(10) PRIMARY KEY,
 	Member_ID INT(10) REFERENCES Members(Member_ID)
 );
 
+------------------------------Member_addres TABLE ----------------------------------------------------------
+create table member_addres(
+member_Id varchar(10), 
+zip_code varchar(5) primary key,
+city varchar(10),
+Region varchar(10),
+
+CONSTRAINT addres_FK 
+        FOREIGN KEY(member_Id) REFERENCES members(member_Id)
+);
+
+----------------- INSERT after the normlization------------------------
+
+INSERT INTO member_addres (member_Id, zip_code ,city,Region) VALUES
+(001,'52211','Buraydah','Albsateen'),
+(002,'52214', 'Buraydah','Alrafeah'),
+(003,'56374', 'Ar-Rass','Alqadisiah');
 
 ----------------- INSERT befor the normlization------------------------
  INSERT INTO Members (Member_ID, PIN , First_Name ,Last_Name, Member_Type,Email,Address,Call_Number)  VALUES 
@@ -57,6 +73,7 @@ CREATE TABLE MEMBER_CALL_NUMBER(
 , (009,'35908', 'noof','Al-harbi', 'Postgraduate_Student','noof@qu.edu.sa','Unaizah',9660525181)
  ,(010,'02488', 'raqinah','Al-rabia', 'Faculty','raqinah@qu.edu.sa',NULL,9663525119) 
  ,(011, 'A1234', 'Abeer', 'Alhujaylan', 'Faculty', 'a.alhujaylan@qu.edu.sa', NULL, '05355768765');
+ 
  
 ------------------------------------Card TABLE----------------------------------------------------------
 
@@ -347,19 +364,28 @@ insert into Loan  ( Loan_ID , MemberID , resourceID, Date_Taken_Out , Date_Retur
 
 -------------------------------------Collection TABLE-----------------------------------------------/
 CREATE TABLE Collection (
-    Collection_Name VARCHAR(40) , 
+    Collection_Name VARCHAR(40) PRIMARY KEY , 
     Collection_Type  VARCHAR(30) ,
-    C_Subject VARCHAR(20),
-    ID_of_Items VARCHAR(20) NOT NULL,
+    C_Subject VARCHAR(20)
 
-    CONSTRAINT Coll_PK 
-        PRIMARY KEY(Collection_Name,ID_of_Items),
-	
-    CONSTRAINT Coll_FK 
-        FOREIGN KEY(ID_of_Items)REFERENCES RESOURCES(resourceID)ON DELETE CASCADE
 );
 ----------------- INSERT ------------------------
-INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject,ID_of_Items) values
-('Harry Potter','Book','Fantasy',7 ),
-('Harry Potter','Book','Fantasy', 13);
+INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject) values
+('Harry Potter','Book','Fantasy');
+
+-------------------------------------Collection_ID TABLE-----------------------------------------------/
+CREATE TABLE Collection_ID (
+  Collection_Name VARCHAR(40) , 
+  ID_of_Items VARCHAR(20) NOT NULL,
+  
+    CONSTRAINT CName_FK 
+        FOREIGN KEY(Collection_Name)REFERENCES Collection(Collection_Name)ON DELETE CASCADE,
+    	
+    CONSTRAINT Coll_FK 
+        FOREIGN KEY(ID_of_Items)REFERENCES RESOURCES(resourceID)ON DELETE CASCADE     
+  );      
+----------------- INSERT ------------------------
+INSERT INTO Collection_ID (Collection_Name ,ID_of_Items) values
+('Harry Potter',7 ),
+('Harry Potter', 13);
 
