@@ -105,7 +105,7 @@
                                     $filtervalues='';
                                 }
 
-                                $query = " SELECT * FROM Book WHERE  CONCAT(ISBN,B_Name,B_Edition,B_Subject,Book_Type,B_Language) LIKE '%$filtervalues%'  ";
+                                $query = " SELECT * FROM Book b  join Book_language l where b.ISBN = l.ISBN and CONCAT(b.ISBN,b.B_Name,b.B_Edition,b.B_Subject,b.Book_Type,l.B_Language) LIKE '%$filtervalues%'  ";
                                 $query_run = $con ->query($query);
                                 if( $query_run != false && $query_run ->num_rows > 0)
                                 {
@@ -203,7 +203,7 @@
                                 }else{
                                     $filtervalues='';
                                 }
-                                $query = " SELECT * FROM Author WHERE CONCAT(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) LIKE '%$filtervalues%'  ";
+                                $query = " SELECT * FROM Author a  join author_call_number c WHERE a.AuthorID = c.AuthorID and CONCAT(a.AuthorID, a.Author_Name , c.Call_Number ,a.Year_Of_Birth ) LIKE '%$filtervalues%'  ";
                                 $query_run = $con ->query($query);
                                 if( $query_run != false && $query_run ->num_rows > 0)
                                     {
@@ -250,7 +250,7 @@
                                 }else{
                                     $filtervalues='';
                                 }
-                                $query = " SELECT * FROM Thesis WHERE CONCAT (T_ID,T_Title,T_DESCRIPTION,T_Location)LIKE '%$filtervalues%'  ";
+                                $query = " SELECT * FROM Thesis t join Th_location l WHERE t.T_ID = l.T_ID and CONCAT (t.T_ID,t.T_Title,t.T_DESCRIPTION,l.T_Location)LIKE '%$filtervalues%'  ";
                                 $query_run = $con ->query($query);
                                 if( $query_run != false && $query_run ->num_rows > 0)
                                     {
@@ -346,7 +346,7 @@
                                 }else{
                                     $filtervalues='';
                                 }
-                                $query = " SELECT * FROM Video_Sound_Record WHERE CONCAT (Record_ID,Record_Title,Record_Type,R_DESCRIPTION,R_Location,Publisher)LIKE '%$filtervalues%'  ";
+                                $query = " SELECT * FROM Video_Sound_Record v join 	record_location r WHERE  v.Record_ID = r.Record_ID and CONCAT (v.Record_ID,v.Record_Title,v.Record_Type,v.R_DESCRIPTION,r.R_Location,v.Publisher)LIKE '%$filtervalues%'  ";
                                 $query_run = $con ->query($query);
                                 if( $query_run != false && $query_run ->num_rows > 0)
                                     {
