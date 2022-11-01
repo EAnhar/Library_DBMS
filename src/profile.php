@@ -2,12 +2,12 @@
     $ID = $_POST['memberId'];
     $pass = $_POST['password'];
  
-    $con= new mysqli('localhost:3306' , 'root' , '' , 'qulibrary');
+    $con= mysqli_connect('localhost:3306' , 'root' , '' , 'qulibrary');
 
     if($con->connect_error){
         die("Faild to connect :".$con -> connect_error);
     }else{
-        $stmt = $con -> prepare("select * from members as m join cards as c on m.member_ID= c.Member_ID where m.member_ID = ? ");
+        $stmt = $con -> prepare("select * from members m join cards c join member_call_number n on m.member_ID= c.Member_ID = n.Member_ID where m.member_ID = ? ");
         $stmt -> bind_param("i",$ID);
         $stmt -> execute();
         $stmt_result =$stmt -> get_result();
