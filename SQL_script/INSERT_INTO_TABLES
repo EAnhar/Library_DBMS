@@ -8,28 +8,42 @@ values
 , ( 4,'Undergraduate_Student','14 days ',  2,  3) 
 , ( 5,'Community_Patrons','7 days ', 1 , 1 ) ;
 
+
+----------------- INSERT INTO Members ------------------------------
+
+ INSERT INTO Members (Member_ID, PIN , First_Name ,Last_Name, Member_Type,Email)  VALUES 
+(001,'12345', 'Shatha','Al-bahouth', 'Undergraduate_Student','shatha@qu.edu.sa')
+, (002,'13344', 'Anhar','Al-dosary', 'Undergraduate_Student','Anhar@qu.edu.sa')
+, (003,'45566', 'Sara','Al-ghofaily', 'Undergraduate_Student','Sara@qu.edu.sa')
+, (004,'98765', 'Monerah','Al-harbi', 'Staff','Monerah@qu.edu.sa')
+, (005,'76544', 'banan','Al-hassn', 'Postgraduate_Student','banan@qu.edu.s')
+, (006,'83230', 'alaa','Al-motoa', 'Community_Patrons','alaa@qu.edu.sa')
+, (007,'02488', 'asma','Al-shargabi', 'Faculty','as.alshargabi@qu.edu.sa')
+,(008,'23444', 'maha','Al-fozan', 'Community_Patrons','maha@qu.edu.sa')
+, (009,'35908', 'noof','Al-harbi', 'Postgraduate_Student','noof@qu.edu.sa')
+ ,(010,'02488', 'raqinah','Al-rabia', 'Faculty','raqinah@qu.edu.sa') 
+ ,(011, 'A1234', 'Abeer', 'Alhujaylan', 'Faculty', 'a.alhujaylan@qu.edu.sa');
+
+----------------- INSERT INTO MEMBER_CALL_NUMBER ------------------------------
+
+ INSERT INTO MEMBER_CALL_NUMBER (Member_ID,Call_Number)  VALUES 
+(001,9663341556)
+, (002,9663224557)
+, (003,9663184553)
+, (004,9663584590)
+, (005,9663525541)
+, (006,9663025523)
+, (007,9663525532)
+,(008,9663525566)
+, (009,9660525181)
+ ,(010,9663525119) 
+ ,(011,05355768765);
 ----------------- INSERT INTO member_addres after the normlization------------------------
 
 INSERT INTO member_addres (member_Id, zip_code ,city,Region) VALUES
 (001,'52211','Buraydah','Albsateen'),
 (002,'52214', 'Buraydah','Alrafeah'),
 (003,'56374', 'Ar-Rass','Alqadisiah');
-
------------------ INSERT INTO Members befor the normlization------------------------------
-
- INSERT INTO Members (Member_ID, PIN , First_Name ,Last_Name, Member_Type,Email,Address,Call_Number)  VALUES 
-(001,'12345', 'Shatha','Al-bahouth', 'Undergraduate_Student','shatha@qu.edu.sa','Buraydah-Albsateen',9663341556)
-, (002,'13344', 'Anhar','Al-dosary', 'Undergraduate_Student','Anhar@qu.edu.sa','Buraydah-Alrafeah',9663224557)
-, (003,'45566', 'Sara','Al-ghofaily', 'Undergraduate_Student','Sara@qu.edu.sa','Ar-Rass-Alqadisiah',9663184553)
-, (004,'98765', 'Monerah','Al-harbi', 'Staff','Monerah@qu.edu.sa','Unaizah',9663584590)
-, (005,'76544', 'banan','Al-hassn', 'Postgraduate_Student','banan@qu.edu.sa','Buraydah-Alnqa',9663525541)
-, (006,'83230', 'alaa','Al-motoa', 'Community_Patrons','alaa@qu.edu.sa','Buraydah-Alkhbib',9663025523)
-, (007,'02488', 'asma','Al-shargabi', 'Faculty','as.alshargabi@qu.edu.sa',NULL,9663525532)
-,(008,'23444', 'maha','Al-fozan', 'Community_Patrons','maha@qu.edu.sa','Ar-Rass',9663525566)
-, (009,'35908', 'noof','Al-harbi', 'Postgraduate_Student','noof@qu.edu.sa','Unaizah',9660525181)
- ,(010,'02488', 'raqinah','Al-rabia', 'Faculty','raqinah@qu.edu.sa',NULL,9663525119) 
- ,(011, 'A1234', 'Abeer', 'Alhujaylan', 'Faculty', 'a.alhujaylan@qu.edu.sa', NULL, '05355768765');
-
 ----------------- INSERT INTO Cards  ------------------------
 
 INSERT INTO Cards (Member_ID, Register_DATE , Register_expired ,Member_Status )  VALUES 
@@ -45,58 +59,111 @@ INSERT INTO Cards (Member_ID, Register_DATE , Register_expired ,Member_Status ) 
 ,(010,'2022-02-21', '2023-02-21','Active')
 ,(011,'2022-01-21', '2023-01-21','Active');
 
------------------- INSERT INTO AUTHOR befor the normlization ---------------------------------
+------------------ INSERT INTO AUTHOR ---------------------------------
 
-INSERT INTO AUTHOR(AuthorID, Author_Name , Call_Number ,Year_Of_Birth ) values 
-    (23,'Bill Bryson'       , 9663552346 ,1933), 
-    (34, 'Herman Hesse'     , 9665436456, 1943), 
-    (12,'Fyodor Dostoevsky' , 966348464,2001), 
-    (17,'Oscar Wilde'       , 9662344566,1999), 
-    (13,'Franz Kafka'       , 9662342523,1932), 
-    (16,'J.k Rowling'       , 9663451333,1980), 
-    (18,'Carl Jung'         , 9664565675,1977), 
-    (05,'Ibn Qayyim al-Jawziyya' , 9664087632,1292),
-    (07,'Ibn Battuta Al-Tanji' , 9664087632,1304),
-    (10,'Dale Carnegie'     , 9665463457,1997);
+INSERT INTO AUTHOR(AuthorID, Author_Name  ,Year_Of_Birth ) values 
+    (23,'Bill Bryson'        ,1933), 
+    (34, 'Herman Hesse'     , 1943), 
+    (12,'Fyodor Dostoevsky' ,2001), 
+    (17,'Oscar Wilde'       ,1999), 
+    (13,'Franz Kafka'       ,1932), 
+    (16,'J.k Rowling'       ,1980), 
+    (18,'Carl Jung'         ,1977), 
+    (05,'Ibn Qayyim al-Jawziyya' ,1292),
+    (07,'Ibn Battuta Al-Tanji' ,1304),
+    (10,'Dale Carnegie'     ,1997);
 
------------------  INSERT INTO BOOK before normalization------------------------------------------------
+----------------- INSERT INTO AUTHOR_call_number ---------------------------------
 
-INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher , B_Language,Rsrc_ID ) values 
-    (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ','ENGLISH',1 ),
-    (0552997048,'A Short History of Nearly Everything'  ,'4th'  ,'Short story'  ,'Paper_Book',10 ,'Haeper Colline','ARABIC',2 ),
-    (0805012469, 'The Glass Bead Game'                  ,'7th'  ,'Thriller'     ,'Paper_Book', 10,'Simon & schuster','ENGLISH',3 ),
-    (0140449132, 'Crime and Punishment'                 ,'3rd'  ,'History'      ,'eBook'     ,18 ,'william Tyndale','ENGLISH',4 ),
-    (1686705026,'The Picture of Dorian Gray'            ,''     ,'Diary'        ,'Paper_Book',23 ,'Abrams books','ENGLISH',5 ),
-    (1505297052, 'The Metamorphosis'                    ,'1st'  ,'Mystery'      ,'eBook'     , 34,'Piatkus','ARABIC',6 ),
-    (1408845660,'Harry Potter and the Prisoner of Azkaban','9th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH',7 ),
-    (0613922670, 'Man and His Symbols'                  , ''    ,'Anthology'    ,'Paper_Book', 13,'Piatkus','ARABIC' ,8),
-    (0091906350,'How to Win Friends and Influence People','5th' ,'Guide'        ,'Paper_Book',18 ,'Random house','ENGLISH',9 ),
-    (0722532938, 'The Alchemist'                        ,'3rd'  ,'Science'      ,'Paper_Book', 10,'Piatkus','ENGLISH',10 ),
-    (0261103571,'The Fellowship of the Ring '           ,'7th'  ,'Philosophy'   ,'eBook'     , 17,'Piatkus','ARABIC',11 ),
-    (2745122061, 'Aljawab alkafi '                    ,''     ,'Religion'     ,'Paper_Book', 05,'Scientific Books House','ARABIC',12 ),
-    (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books','ENGLISH',13 ),
-    (8638845660,'Ibn Battuta Journey','','Literature'      ,'Paper_Book',07 ,'dar altaqwaa','ARABIC',14 );
+
+INSERT INTO Author_Call_Number(AuthorID, Call_Number  ) values 
+    (23,9663552346 ), 
+    (34,9665436456), 
+    (12, 966348464), 
+    (17,9662344566), 
+    (13,9662342523), 
+    (16,9663451333), 
+    (18,9664565675), 
+    (05,9664087432),
+    (07,9664087632),
+    (10,9665463457);
+
+-----------------  INSERT INTO BOOK ------------------------------------------------
+
+INSERT INTO BOOK(ISBN , B_Name , B_Edition , B_Subject ,Book_Type , AuthorID , Publisher ,Rsrc_ID ) values 
+    (0872204642, 'Nicomachean Ethics'                   ,'1st'  ,'Guide'        ,'eBook'     ,18 ,'Random house ',1 ),
+    (0552997048,'A Short History of Nearly Everything'  ,'4th'  ,'Short story'  ,'Paper_Book',10 ,'Haeper Colline',2 ),
+    (0805012469, 'The Glass Bead Game'                  ,'7th'  ,'Thriller'     ,'Paper_Book', 10,'Simon & schuster',3 ),
+    (0140449132, 'Crime and Punishment'                 ,'3rd'  ,'History'      ,'eBook'     ,18 ,'william Tyndale',4 ),
+    (1686705026,'The Picture of Dorian Gray'            ,''     ,'Diary'        ,'Paper_Book',23 ,'Abrams books',5 ),
+    (1505297052, 'The Metamorphosis'                    ,'1st'  ,'Mystery'      ,'eBook'     , 34,'Piatkus',6 ),
+    (1408845660,'Harry Potter and the Prisoner of Azkaban','9th','Fantasy'      ,'Paper_Book',16 ,'Abrams books',7 ),
+    (0613922670, 'Man and His Symbols'                  , ''    ,'Anthology'    ,'Paper_Book', 13,'Piatkus' ,8),
+    (0091906350,'How to Win Friends and Influence People','5th' ,'Guide'        ,'Paper_Book',18 ,'Random house',9 ),
+    (0722532938, 'The Alchemist'                        ,'3rd'  ,'Science'      ,'Paper_Book', 10,'Piatkus',10 ),
+    (0261103571,'The Fellowship of the Ring '           ,'7th'  ,'Philosophy'   ,'eBook'     , 17,'Piatkus',11 ),
+    (2745122061, 'Aljawab alkafi '                    ,''     ,'Religion'     ,'Paper_Book', 05,'Scientific Books House',12 ),
+    (1208045660,'Harry Potter and the Half-Blood Prince','8th','Fantasy'      ,'Paper_Book',16 ,'Abrams books',13 ),
+    (8638845660,'Ibn Battuta Journey','','Literature'      ,'Paper_Book',07 ,'dar altaqwaa',14 );
+
+-----------------  INSERT INTO Book_language ------------------------------------------------
+
+INSERT INTO Book_language(ISBN , B_Language ) values 
+    (0872204642,'ENGLISH' ),
+    (0552997048,'ARABIC'),
+    (0805012469,'ENGLISH' ),
+    (0140449132,'ENGLISH' ),
+    (1686705026,'ENGLISH' ),
+    (1505297052,'ARABIC'),
+    (1408845660,'ENGLISH' ),
+    (0613922670,'ARABIC' ),
+    (0091906350,'ENGLISH' ),
+    (0722532938,'ENGLISH'),
+    (0261103571,'ARABIC'),
+    (2745122061,'ARABIC' ),
+    (1208045660,'ENGLISH'),
+    (8638845660,'ARABIC' );
 
 ----------------- INSERT INTO Video_Sound_Record ------------------------
+INSERT INTO Video_Sound_Record(Record_ID ,Record_Title,Record_Type,R_DESCRIPTION,Publisher,Rsrc_ID) values
+(110, 'Vampire Horror!','Sound' ,'Four classic tales of the undead, read by Bill Wallis, John Telfer and Cornelius Garrett' ,'Unabridged Audiobook',20 ),
+(115, 'Lecture: Physics and Life','Video' ,'answer to "What type of knowledge is gained from physics?"','WaveSound',21 ),
+(111, 'The Giver – Lois Lowry','Sound' ,'The Giver is a 1993 American young adult dystopian novel written by Lois Lowry' ,'Ascent Audio',22 ),
+(112, 'IT ENDS WITH US','Sound' ,'An honest, evocative, and tender novel, It Ends with Us is a glorious and touching read' ,'Tantor Media',23 ),
+(113, 'Little Women','Sound' ,'An Audible Original Drama By: Louisa May Alcott' ,'HighBridge' ,24),
+(114, 'The 4-Hour Workweek by Tim Ferriss','Sound' ,'for all those tired of postponing their life until retirement' ,'W. F. Howes Ltd',25);
 
-INSERT INTO Video_Sound_Record(Record_ID ,Record_Title,Record_Type,R_DESCRIPTION,R_Location,Publisher,Rsrc_ID) values(
-(110, 'Vampire Horror!','Sound' ,'Four classic tales of the undead, read by Bill Wallis, John Telfer and Cornelius Garrett', 'Short stories' ,'Unabridged Audiobook',20 ),
-(115, 'Lecture: Physics and Life','Video' ,'answer to "What type of knowledge is gained from physics?"', 'Sciences' ,'WaveSound',21 ),
-(111, 'The Giver – Lois Lowry','Sound' ,'The Giver is a 1993 American young adult dystopian novel written by Lois Lowry', 'novel' ,'Ascent Audio',22 ),
-(112, 'IT ENDS WITH US','Sound' ,'An honest, evocative, and tender novel, It Ends with Us is “a glorious and touching read', 'novel' ,'Tantor Media',23 ),
-(113, 'Little Women','Sound' ,'An Audible Original Drama By: Louisa May Alcott', 'Coming-of-age' ,'HighBridge' ,24),
-(114, 'The 4-Hour Workweek by Tim Ferriss','Sound' ,'for all those tired of postponing their life until retirement', 'Short stories' ,'W. F. Howes Ltd',25));
+
+----------------- INSERT INTO Record_Location ------------------------
+
+INSERT INTO Record_Location(Record_ID ,R_Location) values
+(110,'Short stories' ),
+(115,'Sciences'),
+(111, 'novel'),
+(112,'novel' ),
+(113,'Coming-of-age'),
+(114,'Short stories');
 
 
 ----------------- INSERT INTO Thesis------------------------
 
-insert into Thesis ( T_ID , T_Title , T_DESCRIPTION, AuthorID , T_Location,Rsrc_ID)values
-((101,'pandemic COVID-19','The effects of the COVID-19 pandemic',23 ,'HEALTH' ,26),
- (102,'DNA evidence in criminal justice','Analysis and research on DNA evidence in criminal justice.',18 ,'Criminal Law' ,27),
- (103,'Racism in schools and colleges','The extent of racism in schools and colleges and the factors affecting',34 ,'social',28 ),
- (104,'Economic development and happiness', 'The effect of economic development on happiness',13 ,'Economic' ,29),
- (105,'The consequences of obesity','The long-term health and psychological impact of obesity',12 ,'HEALTH' ,30),
- (106,'The influence of social media.','The consequences of social media and how it can be used to serve the human being',16 ,'social' ,31));
+insert into Thesis ( T_ID , T_Title , T_DESCRIPTION, AuthorID ,Rsrc_ID)values
+(101,'pandemic COVID-19','The effects of the COVID-19 pandemic',23  ,26),
+ (102,'DNA evidence in criminal justice','Analysis and research on DNA evidence in criminal justice.',18 ,27),
+ (103,'Racism in schools and colleges','The extent of racism in schools and colleges and the factors affecting',34 ,28 ),
+ (104,'Economic development and happiness', 'The effect of economic development on happiness',13 ,29),
+ (105,'The consequences of obesity','The long-term health and psychological impact of obesity',12,30),
+ (106,'The influence of social media.','The consequences of social media and how it can be used to serve the human being',16  ,31);
+ 
+----------------- INSERT INTO Th_Location------------------------
+
+insert into Th_Location ( T_ID  , T_Location)values
+(101,'HEALTH' ),
+ (102 ,'Criminal Law' ),
+ (103,'social' ),
+ (104,'Economic' ),
+ (105 ,'HEALTH' ),
+ (106 ,'social' );
  
 ----------------- INSERT INTO Journal------------------------
 
@@ -190,5 +257,4 @@ INSERT INTO Collection(Collection_Name , Collection_Type,C_Subject) values
 INSERT INTO Collection_ID (Collection_Name ,ID_of_Items) values
 ('Harry Potter',7 ),
 ('Harry Potter', 13);
-
 
